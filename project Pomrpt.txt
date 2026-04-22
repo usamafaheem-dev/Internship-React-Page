@@ -1,0 +1,51 @@
+Header:
+
+mujay 1 header chiay jis mya kuch section ha jo ma tumhay bata data ho 
+
+1 main section ha mean main div 
+us div may agay 3 div ha 
+1 div may logo ha 
+2nd may navlinks ha 
+   Home 
+● About 
+● Programs  
+● E-learning 
+● Faculty 
+● Contact Us 
+
+ya navlinks ha jo shaid many tumhay iamge share kia ha wo ar ha usay jo link ha wo use nhi krnay ar na hi drop down ko lagana ha 
+
+third may 1 buton ha jis par admission likha hoa ha 
+
+bg iska abhi kay liya trasnpwent ha lakin jsiay hi scrool ho jay then iska black ho jata ha 
+
+acha ab ma coor theme ko bta data ho Tumhay jo idr use krni ha ham nay acha j button addmiso wala uska color ya ha #fcba03 
+
+ar ach jo navlinks ha unmay times new roman k hi rkna ha ar bold rkhna ha ar usakay hover pr jo button ka color lgaa ha woi lagan ha apnay  
+
+Ar jis trah ya show ho rhah heder like har div mean sectin may 1 border like effect ha line ha tkay ya alg say dikay mean 1 line pori neehcay bordere lay rhi ha r 2 lines inkay beach may 3no section kay 
+
+
+responsive : 
+767px tak jo header ha ismay 1 menu jo ha wo left pr ayy ar log jo ha wo mean 2 div hogay 1 almost 20% lay rha hoga ar dosar 80% to jo 20% wlaa ha usmay meny aya ga ar jo dora usmay logo hga lakin wo center may hoga .then phir 1023 tak 3 div hoa jay dubra say left may meu center may logo ar right may button adddmsion wala . meny jo ha same 20% admsion buton 30% ar lgoo 50% space ar center may hi ar uskay bad sub normal hi jis trah screen ha desktop ki left logo center may navbr ar right may button  
+
+
+Hero section : 
+almost 100 vh ki hiegt lay rah ha hero section hamra 
+
+isamy 1 main section ha usmay agy 2 section ha 
+lakin 1 bg ha peechay ar dosre us bg kay oper black sa tora effect ha tkay iamge tori kam hi dikay ar header iskay ander hi aa rha ha like is trah nazar aa rha ha 
+
+first may 3 cheezy ha 	1 heading ha jis ka font times new roman ha ar iskay neechay text ha poppins ar the button ha apply now hover pr b020E3B ya color hciay mujay 
+tehn dosay side p 1 div may jisamy 2 iamges ha image jo neehcay ha ar dosri main charater ki iamge oper jo doga usko oper lagana ha mean wo oper aya gi 
+
+
+ya sub desktop kay liay ha 
+
+responve : heading choti ho jay gi text chota ho jaya buton ka size bhi ar ya center may aa jay gay  ar jo human chater like 2nd div may iamge ti wo choti ho jay gi ar center may a jay ar uska overlay jo iamge ha wo peechay hi rhay ga lakin chota size may hi 1023 px tak yhi rhay ga then iskay bad norml hi rhay g jis trah ha . 
+
+to in 2 sectin kay liay 1 acha sa prompot likh do mujay dost tkay ma kis ai tool ko day kr ay bana skoo 
+
+
+
+

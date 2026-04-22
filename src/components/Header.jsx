@@ -25,16 +25,16 @@ const Header = () => {
   return (
     <>
       <header
-        className={`header-animate fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled ? 'bg-blue-900/90 shadow-lg' : 'bg-blue-600/10'
+        className={`header-animate fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500 ${
+          scrolled ? 'bg-blue-900 shadow-lg' : 'bg-blue-900/10'
         } backdrop-blur-sm border-b border-white/20 ${
           isVisible ? 'header-visible' : ''
         }`}
       >
         {/* ── Mobile: < 768px ── */}
-        <div className="flex md:hidden h-16">
+        <div className="flex md:hidden h-16 relative">
           {/* Hamburger */}
-          <div className="w-[20%] flex items-center justify-center border-r border-white/10">
+          <div className="absolute left-0 top-0 h-full w-14 flex items-center justify-center z-10">
             <button 
               aria-label={menuOpen ? "Close menu" : "Open menu"} 
               className="text-white hover:text-[#fcba03] transition-colors duration-200"
@@ -43,8 +43,8 @@ const Header = () => {
               {menuOpen ? <X size={22} className="text-[#fcba03]" /> : <Menu size={22} />}
             </button>
           </div>
-          {/* Logo centered */}
-          <div className="flex-1 flex items-center justify-center px-4">
+          {/* Logo perfectly centered */}
+          <div className="w-full flex items-center justify-center">
             <img src={logo} alt="University Logo" className="h-9 object-contain" />
           </div>
         </div>
@@ -67,7 +67,7 @@ const Header = () => {
           </div>
           {/* Admission */}
           <div className="w-[30%] flex items-center justify-center px-4">
-            <button className="bg-[#fcba03] hover:bg-black hover:border hover:border-[#fcba03] hover:text-white text-black font-semibold px-6 py-2.5 uppercase tracking-wider text-sm transition-all duration-300 font-['Poppins']">
+            <button className="bg-[#fcba03] hover:bg-black hover:border hover:border-[#fcba03] hover:text-white text-white font-semibold px-6 py-2.5 uppercase tracking-wider text-sm transition-all duration-300 font-['Poppins']">
               ADMISSION
             </button>
           </div>
@@ -106,7 +106,7 @@ const Header = () => {
 
           {/* Admission Button - 25% width */}
           <div className="w-[25%] flex items-center justify-center h-full">
-            <button className="bg-[#fcba03] hover:bg-black border-2 border-transparent hover:border-[#fcba03] hover:text-white text-black font-bold px-7 py-2.5 uppercase tracking-wide text-[13px] transition-all duration-300 font-['Poppins']">
+            <button className="bg-[#fcba03] hover:bg-black border-2 border-transparent hover:border-[#fcba03] hover:text-white text-white font-bold px-7 py-2.5 uppercase tracking-wide text-[13px] transition-all duration-300 font-['Poppins']">
               ADMISSION
             </button>
           </div>
@@ -115,7 +115,7 @@ const Header = () => {
 
       {/* Mobile Menu Panel */}
       {menuOpen && (
-        <div className="fixed top-16 md:top-16 left-0 w-full bg-white z-40 xl:hidden shadow-lg">
+        <div className="fixed top-16 md:top-16 left-0 right-0 w-full bg-white z-40 xl:hidden shadow-lg overflow-hidden">
           <nav className="flex flex-col">
             {navLinks.map((label, index) => (
               <a

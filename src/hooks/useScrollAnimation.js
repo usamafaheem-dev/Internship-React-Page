@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const useScrollAnimation = (threshold = 0.1) => {
+const useScrollAnimation = (threshold = 0.2) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -8,7 +8,7 @@ const useScrollAnimation = (threshold = 0.1) => {
     if (!section) return;
 
     const trigger = () => {
-      const animatedEls = section.querySelectorAll('.anim-up, .anim-down, .anim-left, .anim-right');
+      const animatedEls = section.querySelectorAll('.anim-up, .anim-down, .anim-left, .anim-right, .anim-scale, .anim-blur-in');
       animatedEls.forEach((el) => {
         el.classList.remove('in-view');
         void el.offsetWidth; // force reflow to restart animation
@@ -17,7 +17,7 @@ const useScrollAnimation = (threshold = 0.1) => {
     };
 
     const reset = () => {
-      const animatedEls = section.querySelectorAll('.anim-up, .anim-down, .anim-left, .anim-right');
+      const animatedEls = section.querySelectorAll('.anim-up, .anim-down, .anim-left, .anim-right, .anim-scale, .anim-blur-in');
       animatedEls.forEach((el) => el.classList.remove('in-view'));
     };
 
@@ -31,7 +31,7 @@ const useScrollAnimation = (threshold = 0.1) => {
           }
         });
       },
-      { threshold, rootMargin: '0px 0px -40px 0px' }
+      { threshold, rootMargin: '0px 0px -100px 0px' }
     );
 
     observer.observe(section);

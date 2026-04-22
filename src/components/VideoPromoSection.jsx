@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { X } from 'lucide-react';
 import videoImage1 from '../assets/images/videosectioniamge1.jpg';
 import videoImage2 from '../assets/images/videosectioniamge2.jpg';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const promoData = [
   {
     id: 1,
     title: 'Study at Eduversita',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
-    bgColor: 'bg-[#a4c639]',
-    playIconColor: 'text-[#a4c639]',
+    bgColor: 'bg-[#fcba03]',
+    textColor: 'text-black',
+    playIconColor: 'text-[#fcba03]',
     image: videoImage1,
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
   },
@@ -17,34 +19,35 @@ const promoData = [
     id: 2,
     title: 'Campus Life & Community',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
-    bgColor: 'bg-[#ff6347]',
-    playIconColor: 'text-[#ff6347]',
+    bgColor: 'bg-blue-900/90',
+    textColor: 'text-white',
+    playIconColor: 'text-blue-900',
     image: videoImage2,
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
   }
 ];
 
-const PromoBlock = ({ title, description, bgColor, playIconColor, image, videoUrl, onPlayClick }) => {
+const PromoBlock = ({ title, description, bgColor, playIconColor, image, videoUrl, onPlayClick, textColor }) => {
   return (
-    <div className="flex flex-col md:flex-row w-full overflow-hidden">
+    <div className="anim-blur-in flex flex-col md:flex-row w-full overflow-hidden shadow-lg">
       {/* Text Panel */}
-      <div className={`${bgColor} w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative`}>
-        <h2 className="text-white text-3xl md:text-4xl font-bold mb-4 leading-tight">
+      <div className={`${bgColor} w-full md:w-1/2 p-5 md:p-12 flex flex-col justify-center relative`}>
+        <h2 className={`${textColor} text-xl md:text-4xl font-bold mb-2 md:mb-4 leading-tight`}>
           {title}
         </h2>
-        <p className="text-white text-base md:text-lg mb-8 leading-relaxed opacity-95">
+        <p className={`${textColor} text-sm md:text-lg mb-4 md:mb-8 leading-relaxed opacity-90`}>
           {description}
         </p>
         
         {/* Play Button */}
         <button
           onClick={() => onPlayClick(videoUrl)}
-          className="group w-20 h-20 md:w-24 md:h-24 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center relative"
+          className="group w-14 h-14 md:w-24 md:h-24 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center relative"
           aria-label="Play video"
         >
           <div className="absolute inset-0 rounded-full bg-white opacity-30 animate-ping"></div>
           <svg
-            className={`${playIconColor} w-8 h-8 md:w-10 md:h-10 ml-1 relative z-10 group-hover:scale-110 transition-transform`}
+            className={`${playIconColor} w-6 h-6 md:w-10 md:h-10 ml-1 relative z-10 group-hover:scale-110 transition-transform`}
             fill="currentColor"
             viewBox="0 0 24 24"
           >
@@ -54,7 +57,7 @@ const PromoBlock = ({ title, description, bgColor, playIconColor, image, videoUr
       </div>
 
       {/* Image Panel */}
-      <div className="w-full md:w-1/2 h-64 md:h-auto">
+      <div className="w-full md:w-1/2 h-44 md:h-auto">
         <img
           src={image}
           alt={title}
@@ -96,6 +99,7 @@ const VideoModal = ({ videoUrl, onClose }) => {
 
 const VideoPromoSection = () => {
   const [activeVideo, setActiveVideo] = useState(null);
+  const sectionRef = useScrollAnimation(0.15);
 
   const handlePlayClick = (videoUrl) => {
     setActiveVideo(videoUrl);
@@ -107,7 +111,7 @@ const VideoPromoSection = () => {
 
   return (
     <>
-      <section className="relative bg-gray-100 py-12 md:py-16 lg:py-20 z-10">
+      <section ref={sectionRef} className="relative bg-gray-100 py-12 md:py-16 lg:py-20 z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {promoData.map((promo) => (
@@ -116,6 +120,7 @@ const VideoPromoSection = () => {
                   title={promo.title}
                   description={promo.description}
                   bgColor={promo.bgColor}
+                  textColor={promo.textColor}
                   playIconColor={promo.playIconColor}
                   image={promo.image}
                   videoUrl={promo.videoUrl}

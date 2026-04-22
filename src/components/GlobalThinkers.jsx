@@ -30,7 +30,7 @@ const GlobalThinkers = () => {
           </p>
 
           {/* CTA Button */}
-          <button className="bg-[#a4c639] hover:bg-[#8fb02d] text-gray-900 font-bold px-10 py-3.5 uppercase tracking-wider text-sm transition-colors">
+          <button className="bg-[#fcba03] border-2 border-transparent hover:bg-black hover:border-[#fcba03] text-white font-bold px-10 py-3.5 uppercase tracking-wider text-sm transition-colors">
             DISCOVER MORE
           </button>
 

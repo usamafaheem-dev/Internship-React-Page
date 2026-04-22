@@ -42,25 +42,37 @@ const Hero = () => {
               </p>
 
               {/* CTA Button */}
-              <button className="anim-up delay-400 bg-[#fcba03] text-black font-bold px-10 py-4 uppercase tracking-wide hover:bg-[#b020e3] hover:text-white transition-all duration-300 text-lg">
+              <button className="anim-up delay-400 bg-[#fcba03] border-2 border-transparent hover:bg-black hover:border-[#fcba03] text-white font-bold px-10 py-4 uppercase tracking-wide transition-all duration-300 text-lg">
                 APPLY NOW!
               </button>
             </div>
 
             {/* Right Image Composition Column */}
-            <div className="w-full lg:w-1/2 flex items-end justify-center lg:absolute lg:bottom-0 lg:right-0">
+            <div className="w-full lg:w-1/2 flex items-end justify-start lg:absolute lg:bottom-0 lg:right-0">
               <div className="relative w-full max-w-md lg:max-w-2xl">
                 {/* Green Shape Behind - Larger and positioned behind student */}
-                <div className="anim-down left-3  delay-200 absolute  bottom-0 w-[90%] z-0">
-                  <img
-                    src={greenShape}
-                    alt=""
-                    className="w-full h-auto opacity-90"
-                  />
+                <div className="anim-down left-3  delay-200 absolute bottom-0 w-[90%] z-0">
+                  <div className="relative w-full h-auto">
+                    <img
+                      src={greenShape}
+                      alt=""
+                      className="w-full h-auto opacity-0"
+                    />
+                    <div className="absolute inset-0 bg-blue-900/90" style={{
+                      WebkitMaskImage: `url(${greenShape})`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url(${greenShape})`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center'
+                    }}></div>
+                  </div>
                 </div>
 
                 {/* Hero Characters Image - Grayscale and fixed at bottom */}
-                <div className="anim-left relative z-10 left-10">
+                <div className="anim-left relative z-10 left-5 md:left-10">
                   <img
                     src={heroCharacter}
                     alt="University Students"

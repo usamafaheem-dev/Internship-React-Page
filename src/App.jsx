@@ -13,6 +13,7 @@ import AlumniTestimonial from './components/AlumniTestimonial';
 import FAQ from './components/FAQ';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
         <CTASection />
       </section>
       <Footer />
+      <BackToTop />
     </>
   );
 };

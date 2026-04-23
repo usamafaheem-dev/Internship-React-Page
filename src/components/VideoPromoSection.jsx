@@ -13,7 +13,7 @@ const promoData = [
     textColor: 'text-black',
     playIconColor: 'text-[#fcba03]',
     image: videoImage1,
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    videoUrl: 'https://www.youtube.com/embed/cpF_Pjowj_E'
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const promoData = [
     textColor: 'text-white',
     playIconColor: 'text-blue-900',
     image: videoImage2,
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    videoUrl: 'https://www.youtube.com/embed/obi4Qr1UsDc'
   }
 ];
 
@@ -86,7 +86,7 @@ const VideoModal = ({ videoUrl, onClose }) => {
         
         {/* Video Frame */}
         <iframe
-          src={videoUrl}
+          src={`${videoUrl}?controls=1&modestbranding=1&rel=0&showinfo=1&fs=0&iv_load_policy=3&disablekb=1&cc_load_policy=0`}
           className="w-full h-full"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

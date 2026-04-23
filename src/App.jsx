@@ -18,19 +18,31 @@ const App = () => {
   return (
     <>
       <Header />
-      <Hero />
-      <WhoWeAre />
-      <VideoPromoSection />
-      <DataStatistics />
-      <GlobalThinkers />
-      <ProgramsSection />
-      <ThroughCreativity />
-      <WhyChooseUs />
-      <InspirationalBanner />
-      <EasyStepToApply />
-      <AlumniTestimonial />
-      <FAQ />
-      <CTASection />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="about">
+        <WhoWeAre />
+        <VideoPromoSection />
+        <DataStatistics />
+        <GlobalThinkers />
+      </section>
+      <section id="programs">
+        <ProgramsSection />
+        <ThroughCreativity />
+        <WhyChooseUs />
+      </section>
+      <section id="e-learning">
+        <InspirationalBanner />
+        <EasyStepToApply />
+      </section>
+      <section id="faculty">
+        <AlumniTestimonial />
+        <FAQ />
+      </section>
+      <section id="contact">
+        <CTASection />
+      </section>
       <Footer />
     </>
   );

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/images/logo``1.png';
 
-const navLinks = ['Home', 'About Us', 'Academics', 'Faculty', 'Contact Us', 'Pages'];
+const navLinks = ['Home', 'About', 'Programs', 'E-learning', 'Faculty', 'Contact Us'];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,6 +21,23 @@ const Header = () => {
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
+
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 72; // Header height
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+      
+      setActiveLink(sectionId);
+      setMenuOpen(false);
+    }
+  };
 
   return (
     <>
@@ -82,25 +99,31 @@ const Header = () => {
 
           {/* Nav Links - 45% width */}
           <nav className="w-[45%] flex items-center justify-center gap-8 px-8 border-r border-white/20 h-full">
-            {['HOME', 'ABOUT US', 'ACADEMICS', 'FACULTY', 'CONTACT US', 'PAGES'].map((label) => (
-              <a
+            {[
+              { label: 'HOME', id: 'home' },
+              { label: 'ABOUT', id: 'about' },
+              { label: 'PROGRAMS', id: 'programs' },
+              { label: 'E-LEARNING', id: 'e-learning' },
+              { label: 'FACULTY', id: 'faculty' },
+              { label: 'CONTACT US', id: 'contact' }
+            ].map(({ label, id }) => (
+              <button
                 key={label}
-                href="#"
+                onClick={() => scrollToSection(id)}
                 className={`relative font-bold uppercase tracking-wide text-[13px] whitespace-nowrap transition-colors duration-300 font-['Poppins'] group ${
-                  activeLink === label.toLowerCase().replace(' ', '') 
+                  activeLink === id 
                     ? 'text-[#fcba03]' 
                     : 'text-white hover:text-[#fcba03]'
                 }`}
-                onClick={() => setActiveLink(label.toLowerCase().replace(' ', ''))}
               >
                 {label}
                 {/* Thin elegant underline */}
                 <span className={`absolute bottom-[-6px] left-0 h-[1.5px] bg-[#fcba03] transition-all duration-300 ease-out ${
-                  activeLink === label.toLowerCase().replace(' ', '') 
+                  activeLink === id 
                     ? 'w-full' 
                     : 'w-0 group-hover:w-full'
                 }`}></span>
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -117,20 +140,23 @@ const Header = () => {
       {menuOpen && (
         <div className="fixed top-16 md:top-16 left-0 right-0 w-full bg-white z-40 xl:hidden shadow-lg overflow-hidden">
           <nav className="flex flex-col">
-            {navLinks.map((label, index) => (
-              <a
+            {[
+              { label: 'Home', id: 'home' },
+              { label: 'About', id: 'about' },
+              { label: 'Programs', id: 'programs' },
+              { label: 'E-learning', id: 'e-learning' },
+              { label: 'Faculty', id: 'faculty' },
+              { label: 'Contact Us', id: 'contact' }
+            ].map(({ label, id }, index) => (
+              <button
                 key={label}
-                href="#"
-                className={`px-8 py-4 text-black font-semibold text-base hover:bg-gray-100 transition-colors font-['Poppins'] ${
+                onClick={() => scrollToSection(id)}
+                className={`px-8 py-4 text-black font-semibold text-base hover:bg-gray-100 transition-colors font-['Poppins'] text-left ${
                   index !== navLinks.length - 1 ? 'border-b border-gray-200' : ''
                 }`}
-                onClick={() => {
-                  setActiveLink(label);
-                  setMenuOpen(false);
-                }}
               >
                 {label}
-              </a>
+              </button>
             ))}
           </nav>
         </div>

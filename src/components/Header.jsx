@@ -32,9 +32,9 @@ const Header = () => {
         }`}
       >
         {/* ── Mobile: < 768px ── */}
-        <div className="flex md:hidden h-16 relative">
+        <div className="flex md:hidden h-16">
           {/* Hamburger */}
-          <div className="absolute left-0 top-0 h-full w-14 flex items-center justify-center z-10">
+          <div className="w-14 flex items-center justify-center border-r border-white/30 shrink-0">
             <button 
               aria-label={menuOpen ? "Close menu" : "Open menu"} 
               className="text-white hover:text-[#fcba03] transition-colors duration-200"
@@ -44,7 +44,7 @@ const Header = () => {
             </button>
           </div>
           {/* Logo perfectly centered */}
-          <div className="w-full flex items-center justify-center">
+          <div className="flex-1 flex items-center justify-center">
             <img src={logo} alt="University Logo" className="h-9 object-contain" />
           </div>
         </div>
